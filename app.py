@@ -40,7 +40,8 @@ def handle_message(event):
     msg = event.message.text
     r = "很抱歉 您說什麼?"
     
-    if "貼圖" in msg:
+    if "love" in msg:
+        r = "Daniel LOVE Jessie"
         sticker_message = StickerSendMessage(
         package_id='8515',
         sticker_id='16581253'
@@ -48,19 +49,23 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
+
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=r))
+
         return
 
 
     if msg in ["hi", "Hi"]:
         r = "嗨"
-    elif msg == "你吃飯?":
-        r = "還沒"
+    elif msg == "Daniel":
+        r = "據我所知朱俊嘉一個風流倜儻的男人，百年難得一見的練武奇才"
     elif msg == "你是誰":
-        r = "我是嘉爺機器人阿"
-    elif "訂位" in msg:
-        r = "想訂位是不是"
-    elif "貼圖" in msg:
-        r = sticker_message
+        r = "我是嘉爺機器人阿，我跟朱俊嘉，就像鋼鐵人跟賈維斯"
+    elif "Jessie" in msg:
+        r = "夢想之家最強打手，動不動起床氣上身的女人"
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
