@@ -41,7 +41,6 @@ def handle_message(event):
     r = "很抱歉 您說什麼?"
     
     if "love" in msg:
-        r = "Daniel LOVE Jessie"
         sticker_message = StickerSendMessage(
         package_id='8515',
         sticker_id='16581253'
@@ -49,10 +48,6 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
-
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=r))
 
         return
 
@@ -65,6 +60,8 @@ def handle_message(event):
         r = "我是嘉爺機器人阿，我跟朱俊嘉，就像鋼鐵人跟賈維斯"
     elif "Jessie" in msg:
         r = "夢想之家最強打手，動不動起床氣上身的女人"
+    elif "Love" in msg:
+        r = "Daniel LOVE Jessie"
 
     line_bot_api.reply_message(
         event.reply_token,
