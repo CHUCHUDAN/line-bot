@@ -52,7 +52,7 @@ def handle_message(event):
     elif "訂位" in msg:
         r = "想訂位是不是"
     elif "貼圖" in msg:
-        r = sticker_messages
+        r = sticker_message
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
